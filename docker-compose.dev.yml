@@ -1,0 +1,13 @@
+services:
+  nest-app: 
+    container_name: nest-node-app
+    build: 
+      context: .
+      dockerfile: Dockerfile.dev
+    volumes:
+      - ./src:/app/src:ro
+      - ./db.sqlite:/app/db.sqlite
+    ports:
+      - "3000:3000"
+    env_file:
+      - ./.env
